@@ -20,3 +20,28 @@ read data:
 vesuvius <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-05-13/vesuvius.csv')
 
 ```
+
+analise:
+
+
+```{r}
+
+# filter only higher events
+high_events <- 
+    vesuvius |> 
+    filter(duration_magnitude_md >= 2.0) |> 
+    mutate(period = year - (year %% 5))
+
+high_events |> 
+    ggplot(aes(x = period, y = duration_magnitude_md, group = period, color = period)) +
+    geom_violin() +
+    geom_jitter() +
+    theme_minimal() +
+    labs(
+        title = "Higher Seismic Events at Mount Vesuvius",
+        subtitle = "Grouped by 5 years period",
+        x = "Period",
+        y = "Magnitude"
+    )
+
+```
