@@ -42,6 +42,8 @@ high_events |>
         subtitle = "Grouped by 5 years period",
         x = "Period",
         y = "Magnitude"
-    )
+    ) +
+    scale_colour_gradient(low = "#4992db", high = "#08519C") +
+    guides(color = "none")
 
 ```
