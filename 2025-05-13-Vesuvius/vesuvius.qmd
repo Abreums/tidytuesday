@@ -39,7 +39,7 @@ high_events |>
     theme_minimal() +
     labs(
         title = "Higher Seismic Events at Mount Vesuvius",
-        subtitle = "Grouped by 5 years period",
+        subtitle = "Grouped by 5 years period - only events with magnitude greater than 2.0",
         x = "Period",
         y = "Magnitude"
     ) +
